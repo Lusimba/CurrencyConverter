@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/currConv.css">
+    <title>Currency Converter</title>
+</head>
+<body>
+    <h1 class="text-center">Currency Converter</h1>
+    <div class="currency-info">
+        You can convert between any pair of the following currencies
+        <ul>
+            <li>Nigeria - Naira (NGN)</li>
+            <li>Kenya - Shilling (KES)</li>
+            <li>Ghana - Cedis (GHS)</li>
+        </ul>
+    </div>
+    <form name="form" class="form" method="POST">
+        <div class="input_field">
+            <label class="sourceCurrency" for="input_field">Originating Currency:</label> <br />
+            <select name="sourceCurrency" class="input" id="sourceCurrency">
+                <option class="input-text" value="NGN">Nigeria - Naira (NGN)</option>
+                <option class="input-text" value="KES">Kenya - Shilling (KES)</option>
+                <option class="input-text" value="GHS">Ghana - Cedis (GHS)</option>
+            </select>
+        </div> 
+
+        <div class="input_field">
+            <label class="label" for="destinationCurrency">Converting to:</label> <br />
+            <select name="destinationCurrency" class="input" id="destinationCurrency">
+                <option class="input-text" value="NGN">Nigeria - Naira (NGN)</option>
+                <option class="input-text" value="KES">Kenya - Shilling (KES)</option>
+                <option class="input-text" value="GHS">Ghana - Cedis (GHS)</option>
+            </select>
+        </div>
+        
+        
+        <div class="input_field">
+            <label class="label" for="amount">Amount:</label> <br />
+            <input id="amount" class="input" type="text" required name="amount">
+        </div>
+
+        <div class="input_field">
+            <button class="btn" type="submit">Convert</button>
+        </div>
+
+    </form>
+    
+    <div class="results">
+        <h2 class="text-center">Your Currency Conversion Result</h2>
+        <p class="output text-center" id = "results">
+            
+        </p>
+        {{ range . }}
+            <p class="output text-center">
+                {{ . }}
+            </p>
+        {{ end }}
+    </div>
+</body>
+<script>
+    (function() {
+        var form = document.querySelector('form');
+    
+        form.addEventListener('change', function() {
+        var source =form["sourceCurrency"].value;
+        var dest =form["destinationCurrency"].value;
+        var amt =form["amount"].value;
+        var state = [source, dest, amt]
+        state = JSON.stringify(state)
+        localStorage.setItem("state",state)
+        });
+        myFunction()
+    })();
+    function myFunction() {
+    var x = localStorage.getItem("state");
+    try {
+        x = JSON.parse(x)
+        document.getElementById("results").innerHTML = `${x[0]}. ${x[2]} to ${x[1]}`;
+    } catch (error) {
+        
+    }
+    }
+    
+    
+</script>
+</html>

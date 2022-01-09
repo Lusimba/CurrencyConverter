@@ -1,0 +1,63 @@
+.form{
+    border: solid black 2px;
+    padding: 1rem;
+    max-width: 40vw;
+    margin: auto;
+    font-size: 1.2rem;
+}
+
+.input_field{
+    line-height: 2rem;
+}
+
+.label{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.input{
+    width: 38vw;
+} 
+
+.btn{
+    background-color: green;
+    padding: .5rem;
+    color: white;
+}
+.btn:hover{
+    background-color: darkgreen;
+    padding: .5rem;
+    color: white;
+}
+
+.results{
+    padding: 1rem;
+    max-width: 40vw;
+    margin: auto;
+}
+.text-center{
+    text-align: center;
+}
+.output{
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.currency-info{
+    padding: 1rem;
+    max-width: 40vw;
+    margin: auto;
+    font-size: 1.2rem;
+}
+.input-text{
+    font-size: 1.2rem;
+    margin: 0.3rem;
+}
+
+    /* "fmt"
+	"html/template"
+	"net/http"
+
+	"strconv"
+
+	"github.com/go-redis/redis"
+	"github.com/gorilla/mux" */
