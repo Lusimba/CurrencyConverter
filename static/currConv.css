@@ -52,12 +52,3 @@
     font-size: 1.2rem;
     margin: 0.3rem;
 }
-
-    /* "fmt"
-	"html/template"
-	"net/http"
-
-	"strconv"
-
-	"github.com/go-redis/redis"
-	"github.com/gorilla/mux" */
